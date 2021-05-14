@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <%= csrf_meta_tag() %>
+    <%= live_title_tag assigns[:page_title] || "Zaryn Network", suffix: " · Phoenix Framework" %>
+    <link phx-track-static rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <script defer phx-track-static type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+  </head>
+  <body class="flex flex-col h-full bg-gray-200 dark:bg-gray-800 pt-20 sm:pt-24">
+    <main role="main" class="container mx-auto mb-8 px-4 max-w-6xl">
+      <p class="alert alert-info alert-left toast" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="alert alert-danger alert-left toast" role="alert"><%= get_flash(@conn, :error) %></p>
+
+      <div class="flex max-w-sm mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden lg:max-w-4xl">
+        <div class="hidden lg:block lg:w-1/2 bg-cover" style="background-image:url('https://images.unsplash.com/photo-1602610411365-76e8c2a88e18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=333&q=80')"></div>
+
+        <div class="w-full py-8 px-6 md:px-8 lg:w-1/2">
+          <h2 class="text-2xl font-semibold text-gray-700 dark:text-white text-center">Zaryn</h2>
+          <%= @inner_content %>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
